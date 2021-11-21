@@ -54,11 +54,13 @@ android {
 }
 
 dependencies {
+    implementation(Accompanist.insets)
 
     implementation(Core.core)
+
     implementation(Compose.ui)
     implementation(Compose.foundation)
-    implementation(Compose.material)
+    implementation(Compose.material3)
     implementation(Compose.toolingPreview)
     implementation(Compose.activity)
     debugImplementation(Compose.tooling)

@@ -1,7 +1,6 @@
 object Accompanist {
     private const val accompanistVersion = "0.21.2-beta"
-    const val systemUiController =
-        "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
+    const val insets = "com.google.accompanist:accompanist-insets:$accompanistVersion"
 }
 
 object AndroidX {
@@ -28,12 +27,13 @@ object Coroutines {
 }
 
 object Compose {
-    const val composeVersion = "1.1.0-beta02"
+    const val composeVersion = "1.1.0-beta03"
     private const val activityComposeVersion = "1.4.0"
     const val activity = "androidx.activity:activity-compose:$activityComposeVersion"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
+    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha01"
     const val material = "androidx.compose.material:material:$composeVersion"
     const val ui = "androidx.compose.ui:ui:$composeVersion"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
