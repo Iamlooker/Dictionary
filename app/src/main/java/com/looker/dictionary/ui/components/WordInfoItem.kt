@@ -1,7 +1,6 @@
 package com.looker.dictionary.ui.components
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -16,25 +15,23 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.looker.dictionary.feature_dictonary.domain.model.WordInfo
 import com.looker.dictionary.ui.theme.typography
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun WordInfoItem(
     wordInfo: WordInfo,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = MaterialTheme.colorScheme.background,
+    elevation: Dp = 0.dp,
 ) {
     var expanded by remember { mutableStateOf(false) }
     Surface(
         modifier = modifier.clip(RoundedCornerShape(24.dp)),
-        color = animateColorAsState(targetValue = backgroundColor).value,
+        color = MaterialTheme.colorScheme.background,
+        tonalElevation = elevation,
         onClick = { expanded = !expanded },
         indication = null
     ) {
@@ -45,10 +42,9 @@ fun WordInfoItem(
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             contentAlignment = Alignment.CenterStart
         ) {
-            Column(
-                modifier = Modifier.padding(end = 24.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
+            Column(modifier = Modifier
+                .animateContentSize()
+                .padding(end = 24.dp)) {
                 Row(
                     verticalAlignment = Alignment.Bottom,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -56,22 +52,27 @@ fun WordInfoItem(
                     Text(text = wordInfo.word, style = typography.headlineMedium)
                     wordInfo.phonetic?.let { Text(text = it, style = typography.labelLarge) }
                 }
-                Text(text = wordInfo.meanings[0].partOfSpeech, fontWeight = FontWeight.Bold)
-                Text(
-                    text = "1. ${wordInfo.meanings[0].definitions[0].definition}",
-                    style = typography.bodyLarge
-                )
+                Spacer(Modifier.height(8.dp))
+                HeaderText(header = wordInfo.meanings[0].partOfSpeech)
+                Spacer(Modifier.height(8.dp))
+                DefinitionText(definition = wordInfo.meanings[0].definitions[0].definition)
+                Spacer(Modifier.height(8.dp))
                 ExampleText(example = wordInfo.meanings[0].definitions[0].example)
-                AnimatedVisibility(visible = expanded) {
+                Spacer(Modifier.height(8.dp))
+                AnimatedVisibility(
+                    visible = expanded,
+                    enter = fadeIn() + expandVertically(expandFrom = Alignment.Top),
+                    exit = fadeOut() + shrinkVertically(shrinkTowards = Alignment.Top),
+                ) {
                     Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         wordInfo.meanings.forEachIndexed { meaningIndex, meaning ->
                             if (meaningIndex > 0) {
-                                Text(text = meaning.partOfSpeech, fontWeight = FontWeight.Bold)
+                                HeaderText(header = meaning.partOfSpeech)
                             }
                             meaning.definitions.forEachIndexed { index, def ->
                                 if (meaningIndex == 0) {
                                     if (index > 0) {
-                                        Text(text = "${index + 1}. ${def.definition}")
+                                        DefinitionText(pos = index + 1, definition = def.definition)
                                         ExampleText(example = def.example)
                                     }
                                 } else {
@@ -84,32 +85,20 @@ fun WordInfoItem(
                 }
             }
             if (wordInfo.meanings.size > 1 || wordInfo.meanings[0].definitions.size > 1) {
-                Icon(
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primaryContainer)
-                        .align(Alignment.CenterEnd),
-                    imageVector = Icons.Rounded.ArrowDropDown,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    contentDescription = "Expand Card"
-                )
+                ExpandIcon(modifier.align(Alignment.CenterEnd))
             }
         }
     }
 }
 
 @Composable
-fun ExampleText(example: String?) {
-    example?.let {
-        Text(
-            text = AnnotatedString(
-                text = "Example: ",
-                spanStyle = SpanStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 16.sp,
-                    letterSpacing = 0.1.sp
-                )
-            ) + AnnotatedString(it)
-        )
-    }
+fun ExpandIcon(modifier: Modifier = Modifier) {
+    Icon(
+        modifier = modifier
+            .clip(CircleShape)
+            .background(MaterialTheme.colorScheme.primaryContainer),
+        imageVector = Icons.Rounded.ArrowDropDown,
+        tint = MaterialTheme.colorScheme.primary,
+        contentDescription = "Expand Card"
+    )
 }

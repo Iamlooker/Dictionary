@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,8 +34,8 @@ fun WordSearchPage(
             itemsIndexed(state.wordInfoItems) { index, wordInfo ->
                 WordInfoItem(
                     wordInfo = wordInfo,
-                    backgroundColor = if (index < 1) MaterialTheme.colorScheme.primaryContainer
-                    else MaterialTheme.colorScheme.background
+                    elevation = if (index == 0) 16.dp
+                    else 0.dp
                 )
             }
         }
