@@ -1,5 +1,5 @@
 object Accompanist {
-    private const val accompanistVersion = "0.21.2-beta"
+    private const val accompanistVersion = "0.22.0-rc"
     const val insets = "com.google.accompanist:accompanist-insets:$accompanistVersion"
 }
 
@@ -9,7 +9,7 @@ object AndroidX {
 }
 
 object Classpath {
-    private const val gradleVersion = "7.0.3"
+    private const val gradleVersion = "7.0.4"
     const val gradleClasspath = "com.android.tools.build:gradle:$gradleVersion"
     const val gradleKotlin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlinVersion}"
@@ -21,19 +21,20 @@ object Core {
 }
 
 object Coroutines {
-    private const val coroutinesVersion = "1.5.2"
+    private const val coroutinesVersion = "1.6.0"
     const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 }
 
 object Compose {
-    const val composeVersion = "1.1.0-beta03"
+    const val composeCompiler = "1.1.0-rc02"
+    private const val composeVersion = "1.1.0-rc01"
     private const val activityComposeVersion = "1.4.0"
     const val activity = "androidx.activity:activity-compose:$activityComposeVersion"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
-    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha01"
+    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha02"
     const val material = "androidx.compose.material:material:$composeVersion"
     const val ui = "androidx.compose.ui:ui:$composeVersion"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
@@ -43,7 +44,7 @@ object Compose {
 }
 
 object Hilt {
-    private const val hiltVersion = "2.40.1"
+    private const val hiltVersion = "2.40.5"
     const val plugin = "dagger.hilt.android.plugin"
     const val classpath = "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
     const val android = "com.google.dagger:hilt-android:$hiltVersion"
@@ -62,7 +63,7 @@ object Lifecycle {
 }
 
 object OkHttp {
-    private const val okhttpVersion = "5.0.0-alpha.2"
+    private const val okhttpVersion = "5.0.0-alpha.3"
     const val core = "com.squareup.okhttp3:okhttp:$okhttpVersion"
     const val logger = "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
 }
@@ -74,12 +75,12 @@ object Retrofit {
 }
 
 object Room {
-    private const val roomVersion = "2.3.0"
+    private const val roomVersion = "2.4.0"
     const val runtime = "androidx.room:room-runtime:$roomVersion"
     const val compiler = "androidx.room:room-compiler:$roomVersion"
     const val ktx = "androidx.room:room-ktx:$roomVersion"
 }
 
 object Version {
-    const val kotlinVersion = "1.5.31"
+    const val kotlinVersion = "1.6.10"
 }

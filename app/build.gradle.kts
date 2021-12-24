@@ -43,7 +43,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = Compose.composeVersion
+        kotlinCompilerExtensionVersion = Compose.composeCompiler
     }
 
     packagingOptions {
@@ -54,6 +54,7 @@ android {
 }
 
 dependencies {
+    implementation(AndroidX.activity)
     implementation(Accompanist.insets)
 
     implementation(Core.core)
@@ -82,6 +83,10 @@ dependencies {
     implementation(Retrofit.gson)
 
     implementation(Room.runtime)
-    kapt(Room.compiler)
     implementation(Room.ktx)
+    kapt(Room.compiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
