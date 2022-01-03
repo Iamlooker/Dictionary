@@ -10,35 +10,35 @@ import com.looker.dictionary.ui.theme.typography
 
 @Composable
 fun HeaderText(header: String?) {
-    header?.let { Text(text = it, style = typography.titleSmall) }
+	header?.let { Text(text = it, style = typography.titleSmall) }
 }
 
 @Composable
 fun DefinitionText(pos: Int = 1, definition: String) {
-    Text(
-        text = AnnotatedString(
-            text = "${pos}: ",
-            spanStyle = SpanStyle(
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 16.sp,
-                letterSpacing = 0.1.sp
-            )
-        ) + AnnotatedString(definition)
-    )
+	Text(
+		text = AnnotatedString(
+			text = "${pos}: ",
+			spanStyle = SpanStyle(
+				fontWeight = FontWeight.SemiBold,
+				fontSize = 16.sp,
+				letterSpacing = 0.1.sp
+			)
+		) + AnnotatedString(definition)
+	)
 }
 
 @Composable
 fun ExampleText(example: String?) {
-    example?.let {
-        Text(
-            text = AnnotatedString(
-                text = "Example: ",
-                spanStyle = SpanStyle(
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 16.sp,
-                    letterSpacing = 0.1.sp
-                )
-            ) + AnnotatedString(it)
-        )
-    }
+	example?.let {
+		Text(
+			text = AnnotatedString(
+				text = "Example: ",
+				spanStyle = SpanStyle(
+					fontWeight = FontWeight.SemiBold,
+					fontSize = 16.sp,
+					letterSpacing = 0.1.sp
+				)
+			) + AnnotatedString(it)
+		)
+	}
 }

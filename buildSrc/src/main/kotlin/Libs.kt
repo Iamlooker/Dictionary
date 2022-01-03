@@ -6,6 +6,7 @@ object Accompanist {
 object AndroidX {
     private const val activityVersion = "1.4.0"
     const val activity = "androidx.activity:activity-ktx:$activityVersion"
+    const val activityCompose = "androidx.activity:activity-compose:$activityVersion"
 }
 
 object Classpath {
@@ -29,8 +30,6 @@ object Coroutines {
 object Compose {
     const val composeCompiler = "1.1.0-rc02"
     private const val composeVersion = "1.1.0-rc01"
-    private const val activityComposeVersion = "1.4.0"
-    const val activity = "androidx.activity:activity-compose:$activityComposeVersion"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
@@ -39,7 +38,7 @@ object Compose {
     const val ui = "androidx.compose.ui:ui:$composeVersion"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
     const val tooling = "androidx.compose.ui:ui-tooling:$composeVersion"
-    private const val navigationVersion = "2.4.0-beta01"
+    private const val navigationVersion = "2.4.0-rc01"
     const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
 }
 
@@ -60,12 +59,6 @@ object Lifecycle {
     const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
-}
-
-object OkHttp {
-    private const val okhttpVersion = "5.0.0-alpha.3"
-    const val core = "com.squareup.okhttp3:okhttp:$okhttpVersion"
-    const val logger = "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
 }
 
 object Retrofit {

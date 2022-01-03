@@ -10,24 +10,24 @@ import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun DictionaryTheme(
-    isDarkTheme: Boolean = isSystemInDarkTheme(),
-    isDynamicColor: Boolean = true,
-    content: @Composable () -> Unit
+	isDarkTheme: Boolean = isSystemInDarkTheme(),
+	isDynamicColor: Boolean = true,
+	content: @Composable () -> Unit
 ) {
-    val dynamicColor = isDynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-    val colors = when {
-        dynamicColor && isDarkTheme -> {
-            dynamicDarkColorScheme(LocalContext.current)
-        }
-        dynamicColor && !isDarkTheme -> {
-            dynamicLightColorScheme(LocalContext.current)
-        }
-        isDarkTheme -> darkColors
-        else -> lightColors
-    }
-    MaterialTheme(
-        colorScheme = colors,
-        typography = typography,
-        content = content
-    )
+	val dynamicColor = isDynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+	val colors = when {
+		dynamicColor && isDarkTheme -> {
+			dynamicDarkColorScheme(LocalContext.current)
+		}
+		dynamicColor && !isDarkTheme -> {
+			dynamicLightColorScheme(LocalContext.current)
+		}
+		isDarkTheme -> darkColors
+		else -> lightColors
+	}
+	MaterialTheme(
+		colorScheme = colors,
+		typography = typography,
+		content = content
+	)
 }
