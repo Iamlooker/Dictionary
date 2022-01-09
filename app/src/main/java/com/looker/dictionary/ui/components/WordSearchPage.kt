@@ -30,6 +30,7 @@ fun WordSearchPage(
 			}
 		}
 	}
+
 	Column(
 		modifier = modifier
 			.fillMaxSize()
@@ -37,11 +38,13 @@ fun WordSearchPage(
 		horizontalAlignment = Alignment.CenterHorizontally,
 		verticalArrangement = Arrangement.spacedBy(16.dp)
 	) {
-		SearchBar(searchQuery = viewModel.searchQuery.value, onSearch = viewModel::onSearch)
 		LazyColumn(
 			modifier = Modifier.fillMaxSize(),
 			verticalArrangement = Arrangement.spacedBy(16.dp)
 		) {
+			item {
+				SearchBar(searchQuery = viewModel.searchQuery.value, onSearch = viewModel::onSearch)
+			}
 			itemsIndexed(state.wordInfoItems) { index, wordInfo ->
 				WordInfoItem(
 					wordInfo = wordInfo,

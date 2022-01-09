@@ -14,16 +14,11 @@ fun DictionaryTheme(
 	isDynamicColor: Boolean = true,
 	content: @Composable () -> Unit
 ) {
-	val dynamicColor = isDynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-	val colors = when {
-		dynamicColor && isDarkTheme -> {
-			dynamicDarkColorScheme(LocalContext.current)
-		}
-		dynamicColor && !isDarkTheme -> {
-			dynamicLightColorScheme(LocalContext.current)
-		}
-		isDarkTheme -> darkColors
-		else -> lightColors
+	val colors = if (isDynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+		if (isDarkTheme) dynamicDarkColorScheme(LocalContext.current)
+		else dynamicLightColorScheme(LocalContext.current)
+	} else {
+		if (isDarkTheme) darkColors else lightColors
 	}
 	MaterialTheme(
 		colorScheme = colors,
