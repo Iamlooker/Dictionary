@@ -14,7 +14,6 @@ android {
 		targetSdk = Android.targetSdk
 		versionCode = Android.versionCode
 		versionName = Android.versionName
-		vectorDrawables { useSupportLibrary = true }
 	}
 
 	buildTypes {
@@ -64,7 +63,7 @@ dependencies {
 	implementation(Compose.ui)
 	implementation(Compose.foundation)
 	implementation(Compose.material3)
-	implementation(Compose.toolingPreview)
+	debugImplementation(Compose.toolingPreview)
 	debugImplementation(Compose.tooling)
 
 	implementation(Lifecycle.runtime)

@@ -15,7 +15,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.looker.dictionary.ui.theme.typography
 
@@ -51,14 +50,5 @@ fun SearchBar(searchQuery: String, onSearch: (String) -> Unit) {
 				}
 			}
 		}
-	)
-}
-
-@Preview
-@Composable
-fun SearchBarPreview() {
-	SearchBar(
-		searchQuery = "Search Here.....",
-		onSearch = {}
 	)
 }
