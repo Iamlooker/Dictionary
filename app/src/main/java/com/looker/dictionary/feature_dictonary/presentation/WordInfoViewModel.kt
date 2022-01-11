@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.looker.dictionary.core.util.Resource
 import com.looker.dictionary.feature_dictonary.domain.use_case.GetWordInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,13 +31,11 @@ class WordInfoViewModel @Inject constructor(
 
 	private var searchJob: Job? = null
 
-	@OptIn(FlowPreview::class)
 	fun onSearch(query: String) {
 		_searchQuery.value = query
 		searchJob?.cancel()
 		searchJob = viewModelScope.launch {
 			getWordInfo(query)
-				.debounce(300)
 				.onEach { result ->
 					when (result) {
 						is Resource.Error -> {
