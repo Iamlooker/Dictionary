@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import com.looker.dictionary.feature_dictonary.domain.model.WordInfo
 import com.looker.dictionary.ui.theme.typography
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun WordInfoItem(
 	wordInfo: WordInfo,
@@ -29,9 +28,10 @@ fun WordInfoItem(
 ) {
 	var expanded by remember { mutableStateOf(false) }
 	Surface(
-		modifier = modifier.clip(RoundedCornerShape(24.dp)),
+		modifier = modifier,
 		color = MaterialTheme.colorScheme.background,
 		tonalElevation = elevation,
+		shape = RoundedCornerShape(24.dp),
 		onClick = { expanded = !expanded },
 		indication = null
 	) {

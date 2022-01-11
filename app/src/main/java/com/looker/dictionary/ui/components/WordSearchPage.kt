@@ -34,7 +34,7 @@ fun WordSearchPage(
 	Column(
 		modifier = modifier
 			.fillMaxSize()
-			.padding(horizontal = 16.dp, vertical = 4.dp),
+			.padding(horizontal = 16.dp),
 		horizontalAlignment = Alignment.CenterHorizontally,
 		verticalArrangement = Arrangement.spacedBy(16.dp)
 	) {
