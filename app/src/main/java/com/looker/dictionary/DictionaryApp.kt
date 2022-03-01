@@ -9,8 +9,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.insets.imePadding
+import com.google.accompanist.insets.statusBarsHeight
 import com.google.accompanist.insets.statusBarsPadding
 import com.looker.dictionary.ui.theme.DictionaryTheme
 import com.looker.dictionary.ui.theme.typography
@@ -32,13 +34,14 @@ fun DictionaryApp(
 				Scaffold(
 					modifier = modifier
 						.nestedScroll(scrollBehavior.nestedScrollConnection)
-						.statusBarsPadding()
 						.imePadding(),
 					containerColor = MaterialTheme.colorScheme.background,
 					topBar = {
 						CenterAlignedTopAppBar(
+							modifier = Modifier.statusBarsHeight(64.dp),
 							title = {
 								Text(
+									modifier = Modifier.statusBarsPadding(),
 									text = stringResource(R.string.app_name),
 									style = typography.headlineMedium
 								)

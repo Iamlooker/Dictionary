@@ -10,7 +10,7 @@ object AndroidX {
 }
 
 object Classpath {
-    private const val gradleVersion = "7.0.4"
+    private const val gradleVersion = "7.1.2"
     const val gradleClasspath = "com.android.tools.build:gradle:$gradleVersion"
     const val gradleKotlin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlinVersion}"
@@ -28,8 +28,8 @@ object Coroutines {
 }
 
 object Compose {
-    const val composeCompiler = "1.1.0-rc02"
-    private const val composeVersion = "1.1.0-rc01"
+    const val composeCompiler = "1.1.0"
+    private const val composeVersion = "1.1.0"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
@@ -43,7 +43,7 @@ object Compose {
 }
 
 object Hilt {
-    private const val hiltVersion = "2.40.5"
+    private const val hiltVersion = "2.41"
     const val plugin = "dagger.hilt.android.plugin"
     const val classpath = "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
     const val android = "com.google.dagger:hilt-android:$hiltVersion"
@@ -55,7 +55,7 @@ object Excludes {
 }
 
 object Lifecycle {
-    private const val lifecycleVersion = "2.4.0"
+    private const val lifecycleVersion = "2.4.1"
     const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
@@ -68,7 +68,7 @@ object Retrofit {
 }
 
 object Room {
-    private const val roomVersion = "2.4.0"
+    private const val roomVersion = "2.4.2"
     const val runtime = "androidx.room:room-runtime:$roomVersion"
     const val compiler = "androidx.room:room-compiler:$roomVersion"
     const val ktx = "androidx.room:room-ktx:$roomVersion"

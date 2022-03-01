@@ -32,8 +32,7 @@ fun WordInfoItem(
 		color = MaterialTheme.colorScheme.background,
 		tonalElevation = elevation,
 		shape = RoundedCornerShape(24.dp),
-		onClick = { expanded = !expanded },
-		indication = null
+		onClick = { expanded = !expanded }
 	) {
 		Box(
 			modifier = Modifier
@@ -45,7 +44,8 @@ fun WordInfoItem(
 			Column(
 				modifier = Modifier
 					.animateContentSize()
-					.padding(end = 24.dp)
+					.padding(end = 24.dp),
+				verticalArrangement = Arrangement.spacedBy(8.dp)
 			) {
 				Row(
 					verticalAlignment = Alignment.Bottom,
@@ -54,13 +54,9 @@ fun WordInfoItem(
 					Text(text = wordInfo.word, style = typography.headlineMedium)
 					wordInfo.phonetic?.let { Text(text = it, style = typography.labelLarge) }
 				}
-				Spacer(Modifier.height(8.dp))
 				HeaderText(header = wordInfo.meanings[0].partOfSpeech)
-				Spacer(Modifier.height(8.dp))
 				DefinitionText(definition = wordInfo.meanings[0].definitions[0].definition)
-				Spacer(Modifier.height(8.dp))
 				ExampleText(example = wordInfo.meanings[0].definitions[0].example)
-				Spacer(Modifier.height(8.dp))
 				AnimatedVisibility(
 					visible = expanded,
 					enter = fadeIn() + expandVertically(expandFrom = Alignment.Top),
