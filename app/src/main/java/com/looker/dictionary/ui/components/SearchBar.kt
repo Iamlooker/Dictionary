@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
@@ -22,6 +23,10 @@ import com.looker.dictionary.ui.theme.typography
 fun SearchBar(searchQuery: String, onSearch: (String) -> Unit) {
 
 	val keyboardController = LocalFocusManager.current
+
+	LaunchedEffect(searchQuery) {
+		onSearch(searchQuery)
+	}
 
 	BasicTextField(
 		modifier = Modifier.fillMaxWidth(),
