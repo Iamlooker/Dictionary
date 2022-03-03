@@ -10,7 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.looker.dictionary.feature_dictonary.presentation.WordInfoViewModel
+import com.looker.dictionary.presentation.WordInfoViewModel
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

@@ -20,6 +20,7 @@ android {
 		getByName("release") {
 			isMinifyEnabled = true
 			isShrinkResources = true
+			isDebuggable = true
 		}
 		all {
 			proguardFiles(
