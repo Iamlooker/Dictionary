@@ -33,13 +33,11 @@ object Compose {
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
-    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha02"
+    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha06"
     const val material = "androidx.compose.material:material:$composeVersion"
     const val ui = "androidx.compose.ui:ui:$composeVersion"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
     const val tooling = "androidx.compose.ui:ui-tooling:$composeVersion"
-    private const val navigationVersion = "2.4.0-rc01"
-    const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
 }
 
 object Hilt {

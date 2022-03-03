@@ -1,7 +1,10 @@
 package com.looker.dictionary.ui.components
 
 import androidx.compose.animation.*
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,10 +14,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.looker.dictionary.feature_dictonary.domain.model.WordInfo
@@ -26,13 +34,16 @@ fun WordInfoItem(
 	modifier: Modifier = Modifier,
 	elevation: Dp = 0.dp,
 ) {
-	var expanded by remember { mutableStateOf(false) }
+	var expanded by rememberSaveable { mutableStateOf(false) }
+	val animateElevation by animateDpAsState(targetValue = if (expanded) 16.dp else elevation)
 	Surface(
-		modifier = modifier,
+		modifier = modifier
+			.clip(RoundedCornerShape(24.dp))
+			.clickable { expanded = !expanded },
 		color = MaterialTheme.colorScheme.background,
-		tonalElevation = elevation,
+		tonalElevation = animateElevation,
 		shape = RoundedCornerShape(24.dp),
-		onClick = { expanded = !expanded }
+		border = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant)
 	) {
 		Box(
 			modifier = Modifier
@@ -95,7 +106,7 @@ fun ExpandIcon(modifier: Modifier = Modifier) {
 		modifier = modifier
 			.clip(CircleShape)
 			.background(MaterialTheme.colorScheme.primaryContainer),
-		imageVector = Icons.Rounded.ArrowDropDown,
+		painter = rememberVectorPainter(image = Icons.Rounded.ArrowDropDown),
 		tint = MaterialTheme.colorScheme.primary,
 		contentDescription = "Expand Card"
 	)
