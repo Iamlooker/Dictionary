@@ -1,5 +1,5 @@
 object Accompanist {
-    private const val accompanistVersion = "0.22.0-rc"
+    private const val accompanistVersion = "0.23.1"
     const val insets = "com.google.accompanist:accompanist-insets:$accompanistVersion"
 }
 
@@ -28,12 +28,12 @@ object Coroutines {
 }
 
 object Compose {
-    const val composeCompiler = "1.1.0"
-    private const val composeVersion = "1.1.0"
+    const val composeCompiler = "1.1.1"
+    private const val composeVersion = "1.1.1"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
-    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha06"
+    const val material3 = "androidx.compose.material3:material3:1.0.0-alpha07"
     const val material = "androidx.compose.material:material:$composeVersion"
     const val ui = "androidx.compose.ui:ui:$composeVersion"
     const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$composeVersion"
