@@ -24,6 +24,9 @@ class WordInfoRepositoryImpl(
 			val remoteWordInfo = api.getWordInfo(word)
 			dao.deleteWordInfos(remoteWordInfo.map { it.word })
 			dao.insertWordInfos(remoteWordInfo.map { it.toWordInfoEntity() })
+
+			val newWordInfos = dao.getWordInfos(word).map { it.toWordInfo() }
+			emit(Resource.Success(newWordInfos))
 		} catch (e: HttpException) {
 			emit(
 				Resource.Error(
@@ -39,9 +42,6 @@ class WordInfoRepositoryImpl(
 				)
 			)
 		}
-
-		val newWordInfos = dao.getWordInfos(word).map { it.toWordInfo() }
-		emit(Resource.Success(newWordInfos))
 	}
 
 	override fun getCachedWordInfo(): Flow<Resource<List<WordInfo>>> = flow {

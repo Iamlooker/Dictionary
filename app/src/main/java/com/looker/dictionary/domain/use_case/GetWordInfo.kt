@@ -14,5 +14,5 @@ class GetWordInfo(private val repository: WordInfoRepository) {
 		return repository.getWordInfo(word)
 	}
 
-	fun cachedWords(): Flow<Resource<List<WordInfo>>> = repository.getCachedWordInfo()
+	private fun cachedWords(): Flow<Resource<List<WordInfo>>> = repository.getCachedWordInfo()
 }
