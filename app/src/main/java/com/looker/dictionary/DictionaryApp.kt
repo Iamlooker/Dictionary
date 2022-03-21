@@ -29,7 +29,7 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class DictionaryApp : Application()
 
-@ExperimentalMaterial3Api
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DictionaryApp(
 	modifier: Modifier = Modifier,

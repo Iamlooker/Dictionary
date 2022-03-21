@@ -44,7 +44,10 @@ class WordInfoViewModel @Inject constructor(
 								isLoading = false
 							)
 							_eventFlow.emit(
-								UIEvents.ShowSnackBar(result.message ?: "Unknown Error", Resource.Error("", true))
+								UIEvents.ShowSnackBar(
+									result.message ?: "Unknown Error",
+									Resource.Error("", true)
+								)
 							)
 						}
 						is Resource.Loading -> {
@@ -52,14 +55,24 @@ class WordInfoViewModel @Inject constructor(
 								wordInfoItems = result.data ?: emptyList(),
 								isLoading = true
 							)
-							_eventFlow.emit(UIEvents.ShowSnackBar("Loading", Resource.Loading(true)))
+							_eventFlow.emit(
+								UIEvents.ShowSnackBar(
+									"Loading",
+									Resource.Loading(true)
+								)
+							)
 						}
 						is Resource.Success -> {
 							_state.value = state.value.copy(
 								wordInfoItems = result.data ?: emptyList(),
 								isLoading = false
 							)
-							_eventFlow.emit(UIEvents.ShowSnackBar("Success", Resource.Success(false)))
+							_eventFlow.emit(
+								UIEvents.ShowSnackBar(
+									"Success",
+									Resource.Success(false)
+								)
+							)
 						}
 					}
 				}
@@ -68,7 +81,10 @@ class WordInfoViewModel @Inject constructor(
 	}
 
 	sealed class UIEvents {
-		data class ShowSnackBar(val message: String = "", val showError: Resource<Boolean> = Resource.Loading(false)) :
+		data class ShowSnackBar(
+			val message: String = "",
+			val showError: Resource<Boolean> = Resource.Loading(false)
+		) :
 			UIEvents()
 	}
 }
