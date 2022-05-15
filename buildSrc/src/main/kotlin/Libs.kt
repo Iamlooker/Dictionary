@@ -1,35 +1,35 @@
 object Accompanist {
-    private const val accompanistVersion = "0.23.1"
+    private const val accompanistVersion = "0.24.8-beta"
     const val insets = "com.google.accompanist:accompanist-insets:$accompanistVersion"
 }
 
 object AndroidX {
-    private const val activityVersion = "1.4.0"
+    private const val activityVersion = "1.5.0-rc01"
     const val activity = "androidx.activity:activity-ktx:$activityVersion"
     const val activityCompose = "androidx.activity:activity-compose:$activityVersion"
 }
 
 object Classpath {
-    private const val gradleVersion = "7.1.2"
+    private const val gradleVersion = "7.2.0"
     const val gradleClasspath = "com.android.tools.build:gradle:$gradleVersion"
     const val gradleKotlin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlinVersion}"
 }
 
 object Core {
-    private const val coreVersion = "1.7.0"
+    private const val coreVersion = "1.8.0-rc01"
     const val core = "androidx.core:core-ktx:$coreVersion"
 }
 
 object Coroutines {
-    private const val coroutinesVersion = "1.6.0"
+    private const val coroutinesVersion = "1.6.1"
     const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 }
 
 object Compose {
-    const val composeCompiler = "1.1.1"
-    private const val composeVersion = "1.1.1"
+    const val composeCompiler = "1.2.0-beta01"
+    private const val composeVersion = "1.2.0-beta01"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
@@ -41,7 +41,7 @@ object Compose {
 }
 
 object Hilt {
-    private const val hiltVersion = "2.41"
+    private const val hiltVersion = "2.42"
     const val plugin = "dagger.hilt.android.plugin"
     const val classpath = "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
     const val android = "com.google.dagger:hilt-android:$hiltVersion"
@@ -53,7 +53,7 @@ object Excludes {
 }
 
 object Lifecycle {
-    private const val lifecycleVersion = "2.4.1"
+    private const val lifecycleVersion = "2.5.0-rc01"
     const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     const val composeViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
@@ -73,5 +73,5 @@ object Room {
 }
 
 object Version {
-    const val kotlinVersion = "1.6.10"
+    const val kotlinVersion = "1.6.21"
 }
