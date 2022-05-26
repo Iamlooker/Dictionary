@@ -13,12 +13,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.looker.dictionary.presentation.WordInfoViewModel
 
 @Composable
 fun WordSearchPage(
 	modifier: Modifier = Modifier,
-	viewModel: WordInfoViewModel,
+	viewModel: WordInfoViewModel = viewModel(),
 ) {
 	val state = viewModel.state.value
 

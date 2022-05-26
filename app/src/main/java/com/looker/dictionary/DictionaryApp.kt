@@ -34,7 +34,7 @@ class DictionaryApp : Application()
 fun DictionaryApp(
 	modifier: Modifier = Modifier,
 	viewModel: WordInfoViewModel = viewModel(),
-	content: @Composable (WordInfoViewModel) -> Unit
+	content: @Composable () -> Unit
 ) {
 	val scrollBehavior = remember { pinnedScrollBehavior() }
 	val snackBarEvent by viewModel.eventFlow.collectAsState(WordInfoViewModel.UIEvents.ShowSnackBar())
@@ -62,7 +62,7 @@ fun DictionaryApp(
 					SnackBarView(snackBar = snackBarEvent as WordInfoViewModel.UIEvents.ShowSnackBar)
 				}
 			) {
-				content(viewModel)
+				content()
 			}
 		}
 	}

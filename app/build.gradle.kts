@@ -28,7 +28,12 @@ android {
 			)
 		}
 	}
+	compileOptions {
+		sourceCompatibility = JavaVersion.VERSION_11
+		targetCompatibility = JavaVersion.VERSION_11
+	}
 	kotlinOptions {
+		jvmTarget = "11"
 		freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
 	}
 
@@ -53,9 +58,13 @@ android {
 }
 
 dependencies {
+	implementation(project(":core"))
+	implementation(project(":feature_dictionary:di"))
+	implementation(project(":feature_dictionary:domain"))
+	implementation(project(":feature_dictionary:data"))
+
 	implementation(Accompanist.insets)
 
-	implementation(AndroidX.activity)
 	implementation(AndroidX.activityCompose)
 
 	implementation(Core.core)
@@ -75,13 +84,6 @@ dependencies {
 
 	kapt(Hilt.compiler)
 	implementation(Hilt.android)
-
-	implementation(Retrofit.core)
-	implementation(Retrofit.gson)
-
-	implementation(Room.runtime)
-	implementation(Room.ktx)
-	kapt(Room.compiler)
 }
 
 kapt {

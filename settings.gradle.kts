@@ -8,3 +8,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Dictionary"
 include(":app")
+include(":feature_dictionary:data")
+include(":feature_dictionary:domain")
+include(":core")
+include(":feature_dictionary:di")

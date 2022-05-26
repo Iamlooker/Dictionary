@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
 		super.onCreate(savedInstanceState)
 		setContent {
 			DictionaryApp {
-				WordSearchPage(viewModel = it)
+				WordSearchPage()
 			}
 		}
 		WindowCompat.setDecorFitsSystemWindows(window, false)

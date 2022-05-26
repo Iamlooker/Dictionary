@@ -1,6 +1,6 @@
 package com.looker.dictionary.presentation
 
-import com.looker.dictionary.domain.model.WordInfo
+import com.looker.dictionary_domain.model.WordInfo
 
 data class WordInfoState(
 	val wordInfoItems: List<WordInfo> = emptyList(),

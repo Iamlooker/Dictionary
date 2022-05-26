@@ -25,7 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.looker.dictionary.domain.model.WordInfo
+import com.looker.dictionary_domain.model.WordInfo
 import com.looker.dictionary.ui.theme.typography
 
 @Composable

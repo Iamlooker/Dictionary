@@ -1,15 +1,15 @@
-package com.looker.dictionary.di
+package com.looker.di
 
 import android.content.Context
 import androidx.room.Room
 import com.google.gson.Gson
-import com.looker.dictionary.data.local.Converters
-import com.looker.dictionary.data.local.WordInfoDatabase
-import com.looker.dictionary.data.remote.DictionaryApi
-import com.looker.dictionary.data.repository.WordInfoRepositoryImpl
-import com.looker.dictionary.data.util.GsonParser
-import com.looker.dictionary.domain.repository.WordInfoRepository
-import com.looker.dictionary.domain.use_case.GetWordInfo
+import com.looker.dictionary_data.local.Converters
+import com.looker.dictionary_data.local.WordInfoDatabase
+import com.looker.dictionary_data.remote.DictionaryApi
+import com.looker.dictionary_data.repository.WordInfoRepositoryImpl
+import com.looker.dictionary_data.util.GsonParser
+import com.looker.dictionary_domain.repository.WordInfoRepository
+import com.looker.dictionary_domain.use_case.GetWordInfo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

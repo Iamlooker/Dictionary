@@ -1,5 +1,5 @@
 object Accompanist {
-    private const val accompanistVersion = "0.24.8-beta"
+    private const val accompanistVersion = "0.24.9-beta"
     const val insets = "com.google.accompanist:accompanist-insets:$accompanistVersion"
 }
 
@@ -10,14 +10,14 @@ object AndroidX {
 }
 
 object Classpath {
-    private const val gradleVersion = "7.2.0"
+    private const val gradleVersion = "7.2.1"
     const val gradleClasspath = "com.android.tools.build:gradle:$gradleVersion"
     const val gradleKotlin =
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlinVersion}"
 }
 
 object Core {
-    private const val coreVersion = "1.8.0-rc01"
+    private const val coreVersion = "1.8.0-rc02"
     const val core = "androidx.core:core-ktx:$coreVersion"
 }
 
@@ -28,8 +28,8 @@ object Coroutines {
 }
 
 object Compose {
-    const val composeCompiler = "1.2.0-beta01"
-    private const val composeVersion = "1.2.0-beta01"
+    const val composeCompiler = "1.2.0-beta02"
+    private const val composeVersion = "1.2.0-beta02"
 
     const val foundation = "androidx.compose.foundation:foundation:$composeVersion"
     const val icons = "androidx.compose.material:material-icons-extended:$composeVersion"
