@@ -1,4 +1,4 @@
-package com.looker.dictionary.presentation
+package com.looker.presentation
 
 import com.looker.dictionary_domain.model.WordInfo
 

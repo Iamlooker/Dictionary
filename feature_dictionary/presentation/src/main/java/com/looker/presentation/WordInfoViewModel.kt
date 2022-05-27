@@ -1,4 +1,4 @@
-package com.looker.dictionary.presentation
+package com.looker.presentation
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

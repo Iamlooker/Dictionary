@@ -1,4 +1,4 @@
-package com.looker.dictionary.ui.components
+package com.looker.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
@@ -14,7 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.looker.dictionary.presentation.WordInfoViewModel
+import com.looker.presentation.WordInfoViewModel
+import com.looker.ui.components.SearchBar
 
 @Composable
 fun WordSearchPage(
@@ -41,7 +42,7 @@ fun WordSearchPage(
 				verticalArrangement = Arrangement.spacedBy(12.dp)
 			) {
 				itemsIndexed(state.wordInfoItems) { index, wordInfo ->
-					WordInfoItem(
+					com.looker.presentation.WordInfoItem(
 						wordInfo = wordInfo,
 						elevation = if (index == 0) 16.dp
 						else 0.dp
@@ -50,5 +51,4 @@ fun WordSearchPage(
 			}
 		}
 	}
-
 }

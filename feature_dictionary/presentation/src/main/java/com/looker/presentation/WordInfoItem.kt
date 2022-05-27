@@ -1,4 +1,4 @@
-package com.looker.dictionary.ui.components
+package com.looker.presentation
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.animateDpAsState
@@ -25,8 +25,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.looker.presentation.components.DefinitionText
+import com.looker.presentation.components.ExampleText
+import com.looker.presentation.components.HeaderText
 import com.looker.dictionary_domain.model.WordInfo
-import com.looker.dictionary.ui.theme.typography
 
 @Composable
 fun WordInfoItem(
@@ -62,8 +64,13 @@ fun WordInfoItem(
 					verticalAlignment = Alignment.Bottom,
 					horizontalArrangement = Arrangement.spacedBy(8.dp)
 				) {
-					Text(text = wordInfo.word, style = typography.headlineMedium)
-					wordInfo.phonetic?.let { Text(text = it, style = typography.labelLarge) }
+					Text(text = wordInfo.word, style = MaterialTheme.typography.headlineMedium)
+					wordInfo.phonetic?.let {
+						Text(
+							text = it,
+							style = MaterialTheme.typography.labelLarge
+						)
+					}
 				}
 				HeaderText(header = wordInfo.meanings[0].partOfSpeech)
 				DefinitionText(definition = wordInfo.meanings[0].definitions[0].definition)

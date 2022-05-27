@@ -2,9 +2,7 @@ package com.looker.dictionary
 
 import android.app.Application
 import androidx.compose.animation.*
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.material3.TopAppBarDefaults.pinnedScrollBehavior
@@ -17,13 +15,9 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.google.accompanist.insets.ProvideWindowInsets
-import com.google.accompanist.insets.imePadding
-import com.google.accompanist.insets.statusBarsHeight
-import com.google.accompanist.insets.statusBarsPadding
-import com.looker.dictionary.presentation.WordInfoViewModel
 import com.looker.dictionary.ui.theme.DictionaryTheme
 import com.looker.dictionary.ui.theme.typography
+import com.looker.presentation.WordInfoViewModel
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -38,32 +32,31 @@ fun DictionaryApp(
 ) {
 	val scrollBehavior = remember { pinnedScrollBehavior() }
 	val snackBarEvent by viewModel.eventFlow.collectAsState(WordInfoViewModel.UIEvents.ShowSnackBar())
+	val customStatusPadding = WindowInsets.statusBars.asPaddingValues()
 	DictionaryTheme {
-		ProvideWindowInsets {
-			Scaffold(
-				modifier = modifier
-					.nestedScroll(scrollBehavior.nestedScrollConnection)
-					.imePadding(),
-				containerColor = MaterialTheme.colorScheme.background,
-				topBar = {
-					CenterAlignedTopAppBar(
-						modifier = Modifier.statusBarsHeight(64.dp),
-						title = {
-							Text(
-								modifier = Modifier.statusBarsPadding(),
-								text = stringResource(R.string.app_name),
-								style = typography.headlineMedium
-							)
-						},
-						scrollBehavior = scrollBehavior
-					)
-				},
-				snackbarHost = {
-					SnackBarView(snackBar = snackBarEvent as WordInfoViewModel.UIEvents.ShowSnackBar)
-				}
-			) {
-				content()
+		Scaffold(
+			modifier = modifier
+				.nestedScroll(scrollBehavior.nestedScrollConnection)
+				.imePadding(),
+			containerColor = MaterialTheme.colorScheme.background,
+			topBar = {
+				CenterAlignedTopAppBar(
+					modifier = Modifier.height(customStatusPadding.calculateTopPadding() + 64.dp),
+					title = {
+						Text(
+							modifier = Modifier.statusBarsPadding(),
+							text = stringResource(R.string.app_name),
+							style = typography.headlineMedium
+						)
+					},
+					scrollBehavior = scrollBehavior
+				)
+			},
+			snackbarHost = {
+				SnackBarView(snackBar = snackBarEvent as WordInfoViewModel.UIEvents.ShowSnackBar)
 			}
+		) {
+			content()
 		}
 	}
 }

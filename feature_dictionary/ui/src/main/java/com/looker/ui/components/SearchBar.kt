@@ -1,4 +1,4 @@
-package com.looker.dictionary.ui.components
+package com.looker.ui.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.looker.dictionary.ui.theme.typography
 
 @Composable
 fun SearchBar(searchQuery: String, onSearch: (String) -> Unit) {
@@ -28,7 +27,7 @@ fun SearchBar(searchQuery: String, onSearch: (String) -> Unit) {
 		value = searchQuery,
 		onValueChange = onSearch,
 		singleLine = true,
-		textStyle = typography.titleLarge.copy(MaterialTheme.colorScheme.onSurface),
+		textStyle = MaterialTheme.typography.titleLarge.copy(MaterialTheme.colorScheme.onSurface),
 		keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
 		keyboardActions = KeyboardActions(
 			onSearch = {
